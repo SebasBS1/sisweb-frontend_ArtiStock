@@ -1,6 +1,8 @@
-# React + TypeScript + Vite
+# ArtiStock (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend part of the ArtiStock web app.
+
+## tags: [typescript, reactjs, bootstrap 5]
 
 Currently, two official plugins are available:
 
