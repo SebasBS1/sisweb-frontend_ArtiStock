@@ -1,8 +1,7 @@
 import { Link } from "react-router";
 import logo from "../media/logo_ph.png";
-import imgSearch from "../media/search.svg";
-import imgBag from "../media/bag.svg";
-import imgProfile from "../media/perfil.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faCircleUser,faBagShopping } from "@fortawesome/free-solid-svg-icons";
 
 function Header(){
     return (
@@ -18,7 +17,7 @@ function Header(){
                             <div className="searchbar d-flex rounded-pill w-50">
                                 <input type="text" placeholder="Buscar Productos" className="text-white form-control bg-transparent border-0" />
                                 <button type="submit" className="btn btn-link">
-                                    <img src={imgSearch} alt="Buscar" />
+                                <FontAwesomeIcon icon={faMagnifyingGlass} size="xs" style={{color:"white"}} />
                                 </button>
                             </div>
                         </div>
@@ -42,13 +41,14 @@ function Header(){
                     </div>
                 </div>
                 <div className="header_right col-md-2 d-flex justify-content-center">
-                    <Link to="#" id="Lista de Compras"><img src={imgBag} alt="Icono de Compras" className="mx-3 pt-2" width={50} /></Link>
-                    <Link to="#" id="perfil"><img src={imgProfile} alt="Icono de Perfil" className="img-fluid" style={{maxWidth: 75}} /></Link>
+                    <Link to="#" id="Lista de Compras" className="p-2 mx-1"><FontAwesomeIcon icon={faBagShopping} size="4x" style={{color:"#137A7F"}} /></Link>
+                    <Link to="#" id="perfil" className="p-2 mx-1"><FontAwesomeIcon icon={faCircleUser} size="4x" style={{color:"#137A7F"}} /></Link>
                 </div>
             </div>
             </div>
         </header>
     );
 }
+
 
 export default Header;
