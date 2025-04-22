@@ -3,7 +3,7 @@ import { Product } from "my-types";
 import { useState, useEffect } from "react";
 import { getProductById, updateProduct } from "../api/ProductAPI";
 import "../style_ap.css"
-import { updateTag } from "../api/TagAPI";
+import { updateTag } from "../api/CategoryAPI";
 
 interface Props {}
 

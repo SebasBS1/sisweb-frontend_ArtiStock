@@ -1,7 +1,7 @@
 import api from "./index";
 import { Tag } from "my-types";
 
-// Obtener todos los productos
+// Obtener todos los tags.
 export const getAllTags = async() => {
     try {
         const res = await api.get("/category");
@@ -13,7 +13,7 @@ export const getAllTags = async() => {
     }
 }
 
-// Obtener un producto por su ID.
+// Obtener un tag por su ID.
 export const getTagById = async(id: number) => {
     try {
         const res = await api.get(`/category/${id}`);
@@ -25,7 +25,7 @@ export const getTagById = async(id: number) => {
     }
 }
 
-// Actualizar el producto por su ID.
+// Actualizar el tag por su ID.
 export const updateTag = async(id: number, _prop: Tag | undefined): Promise<void> => {
     try {
         await api.patch(`/category/${id}`, _prop);
@@ -34,7 +34,7 @@ export const updateTag = async(id: number, _prop: Tag | undefined): Promise<void
     }
 }
 
-// Borrar un producto
+// Borrar un tag por su ID.
 export const deleteTag = async (id: number): Promise<void> => {
     try {
         await api.delete(`/category/${id}`);

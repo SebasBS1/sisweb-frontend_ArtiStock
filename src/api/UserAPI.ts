@@ -1,7 +1,7 @@
 import api from "./index";
 import { User } from "my-types";
 
-// Obtener todos los productos
+// Obtener todos los usuarios.
 export const getAllUsers = async() => {
     try {
         const res = await api.get("/user");
@@ -13,7 +13,7 @@ export const getAllUsers = async() => {
     }
 }
 
-// Obtener un producto por su ID.
+// Obtener un usuario por su ID.
 export const getUserById = async(id: number) => {
     try {
         const res = await api.get(`/user/${id}`);
@@ -25,7 +25,7 @@ export const getUserById = async(id: number) => {
     }
 }
 
-// Actualizar el producto por su ID.
+// Actualizar el usuario por su ID.
 export const updateUser = async(id: number, _prop: User | undefined): Promise<void> => {
     try {
         await api.patch(`/user/${id}`, _prop);
@@ -34,7 +34,7 @@ export const updateUser = async(id: number, _prop: User | undefined): Promise<vo
     }
 }
 
-// Borrar un producto
+// Borrar un usuario por su ID.
 export const deleteUser = async (id: number): Promise<void> => {
     try {
         await api.delete(`/user/${id}`);

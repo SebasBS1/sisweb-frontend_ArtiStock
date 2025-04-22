@@ -34,7 +34,7 @@ export const updateProduct = async(id: number, _prop: Product | undefined): Prom
     }
 }
 
-// Borrar un producto
+// Borrar un producto por su ID.
 export const deleteProduct = async (id: number): Promise<void> => {
     try {
         await api.delete(`/product/${id}`);
