@@ -4,6 +4,7 @@ import ProductPage from "../pages/ProductPage";
 import ErrorPage from "../pages/ErrorPage";
 import ModifyProductPage from "../pages/ModifyProductPage";
 import OneProduct from "../pages/OneProduct";
+import GraphPage from "../pages/GraphPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       },
       {path:"/product/:id",
         element: <OneProduct />,
+        errorElement: <ErrorPage/>
+      },
+      {path:"/graph",
+        element: <GraphPage />,
         errorElement: <ErrorPage/>
       },
     ],

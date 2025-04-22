@@ -2,7 +2,6 @@
 import { Product } from "my-types";
 import { useState, useEffect } from "react";
 import { getAllProducts } from "../api/ProductAPI";
-import { ProductAreaChart, ProductPieChart } from "../components/Charts";
 import Filter from "../components/Filter";
 import List from "../components/List";
 import "../style_ap.css";
@@ -45,9 +44,6 @@ const ProductPage = (_props: Props) => {
         <Filter name={name} setName={setName} />
 
         <List products={filteredProducts}/>
-  
-        <ProductAreaChart key1="price" key2="id" />
-        <ProductPieChart _key="stock" />
     </div>
   );
 };

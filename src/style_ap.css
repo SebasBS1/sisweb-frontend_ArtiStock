@@ -24,6 +24,13 @@ h1, .title{
     color: #E12885
 }
 
+ .subtitle{
+    font-family: 'Gothic A1',
+    sans-serif;
+    font-weight: normal;
+    color: #137A7F
+}
+
 h2{
     font-family: 'Gothic A1',
     sans-serif;

@@ -1,6 +1,6 @@
 import { Product } from "my-types";
 import { useState, useEffect } from "react";
-import { getAllProducts } from "../api/ProductAPI";
+import { getAllProductsGraph } from "../api/ProductAPI";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
     Legend, PieChart, Pie } from "recharts";
 
@@ -17,12 +17,12 @@ export function ProductAreaChart({key1, key2 }: ProductAreaChartParams) {
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        getAllProducts().then((data:any) => setProducts(data));
+        getAllProductsGraph().then((data:any) => setProducts(data));
     }, []);
 
     return(
         <div className="inline-flex justify-center mt-4">
-            <h2>Product {key1[0].toUpperCase() + key1.slice(1)} VS&nbsp;
+            <h2 className="subtitle">Product {key1[0].toUpperCase() + key1.slice(1)} VS&nbsp;
                 {key2[0].toUpperCase() + key2.slice(1)}</h2>
             <AreaChart width={750} height={350} data={products}
                     margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -52,12 +52,12 @@ export function ProductPieChart({_key}: ProductPieChartParams) {
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        getAllProducts().then((data:any) => setProducts(data));
+        getAllProductsGraph().then((data:any) => setProducts(data));
     }, []);
 
     return(
         <div className="inline-flex justify-center mt-4">
-            <h2>Product {_key[0].toUpperCase() + _key.slice(1)}</h2>
+            <h2 className="subtitle">Product {_key[0].toUpperCase() + _key.slice(1)}</h2>
             <PieChart width={400} height={400}>
                 <Pie
                 dataKey={_key}
