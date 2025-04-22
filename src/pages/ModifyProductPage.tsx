@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
-import { Product, Tag } from "my-types";
+import { Product } from "my-types";
 import { useState, useEffect } from "react";
 import { getProductById, updateProduct } from "../api/ProductAPI";
 import "../style_ap.css"
-import { getTagById } from "../api/CategoryAPI";
+import { updateTag } from "../api/TagAPI";
 
 interface Props {}
 
@@ -70,13 +70,14 @@ const ModifyProductPage = (_props: Props) => {
                         
                         <div className="mb-3">
                             <label className="form-label">Agregar Etiquetas</label>
-                            <input type="text" name="tag" 
+                            <input type="text" name="tags"
                             value={(product?.tags && (product?.tags.length > 0))? (product?.tags.map((tag) => {return tag.name}).join(", ")) : ""}
                             onChange={(e) =>{
                                     if (product !== undefined){
                                         let tagsArray = product!.tags || [];
                                         let userTags = e.target.value.split(", ").map(t => t.trim());
                                         const updatedTags = tagsArray.map((t, i) => {
+                                            updateTag(t.id!, {id: t.id!, name: userTags[i]!});
                                             return {...t, id: t.id, name: userTags[i]}
                                         });
                                         setProduct({...product!, tags: updatedTags});

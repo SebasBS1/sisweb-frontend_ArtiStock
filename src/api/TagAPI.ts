@@ -26,9 +26,9 @@ export const getTagById = async(id: number) => {
 }
 
 // Actualizar el producto por su ID.
-export const updateTag = async(id: number, name: string): Promise<void> => {
+export const updateTag = async(id: number, _prop: Tag | undefined): Promise<void> => {
     try {
-        await api.patch(`/category/${id}`, name);
+        await api.patch(`/category/${id}`, _prop);
     } catch(e) {
         console.log(e);
     }
