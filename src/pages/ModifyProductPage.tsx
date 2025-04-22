@@ -13,7 +13,7 @@ const ModifyProductPage = (_props: Props) => {
     // Estado del componente.
     const [product, setProduct] = useState<Product>();
 
-    let recordState = 1;
+    let userTagsString = "";
 
     // Eventos del componente
     useEffect(() => {
@@ -21,16 +21,12 @@ const ModifyProductPage = (_props: Props) => {
         
     }, []);
 
-    const prevProduct = {
-        title: product?.title || "",
-        price: product?.price || 0,
-        stock: product?.stock || 0,
-        description: product?.description || "",
-        image: product?.image || "",
-        tags: product?.tags || []
-    }
-
     const updateSubmit = async() => {
+        if (product?.tags.map !== undefined){
+            product!.tags.map((t, i) => {
+                updateTag(t.id, {id: t.id, name: t.name});
+            });
+        }
         updateProduct(parseInt(id!.toString()), product)
     }
 
@@ -85,12 +81,12 @@ const ModifyProductPage = (_props: Props) => {
                             <input type="text" name="tags"
                             value={(product?.tags && (product?.tags.length > 0))? (product?.tags.map((tag) => {return tag.name}).join(", ")) : ""}
                             onChange={(e) =>{
-                                    if (product !== undefined){
+                                    if (product?.tags.map !== undefined){
+                                        userTagsString = e.target.value;
                                         let tagsArray = product!.tags || [];
                                         let userTags = e.target.value.split(", ").map(t => t.trim());
                                         const updatedTags = tagsArray.map((t, i) => {
-                                            updateTag(t.id!, {id: t.id!, name: userTags[i]!});
-                                            return {...t, id: t.id, name: userTags[i]}
+                                            return {...t, id: t.id, name: userTags[i]};
                                         });
                                         setProduct({...product!, tags: updatedTags});
                                     }
@@ -104,7 +100,7 @@ const ModifyProductPage = (_props: Props) => {
                 
                 <div className="row-auto d-flex justify-content-center gap-3 mt-4 mb-1">
                     {/* reset es para que no envie los datos, sino que regrese a los valores iniciales */}
-                    <button className="btn btn-secondary" type="reset" onClick={() => window.location.reload()}>
+                    <button className="btn btn-secondary" type="reset" onClick={() => window.location.href = `/products/${product?.id}`}>
                         Cancelar
                     </button>
                     <button type="submit" className="b_custom px-3">
