@@ -9,28 +9,30 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: "/users",
+                element: <ProductPage />,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: "/users/:id",
+                element: <ModifyUserPage />,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: "/products",
+                element: <ProductPage />,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: "/products/:id",
+                element: <ModifyProductPage />,
+                errorElement: <ErrorPage />,
+            }
+        ],
+        errorElement: <ErrorPage />
     },
-    {
-        path: "/users",
-        element: <ProductPage />,
-        errorElement: <ErrorPage />,
-    },
-    {
-        path: "/users/:id",
-        element: <ModifyUserPage />,
-        errorElement: <ErrorPage />,
-    },
-    {
-        path: "/products",
-        element: <ProductPage />,
-        errorElement: <ErrorPage />,
-    },
-    {
-        path: "/products/:id",
-        element: <ModifyProductPage />,
-        errorElement: <ErrorPage />,
-    }
 ]);
 
 export default router;

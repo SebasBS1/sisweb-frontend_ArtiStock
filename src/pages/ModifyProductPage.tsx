@@ -13,18 +13,30 @@ const ModifyProductPage = (_props: Props) => {
     // Estado del componente.
     const [product, setProduct] = useState<Product>();
 
+    let recordState = 1;
+
     // Eventos del componente
     useEffect(() => {
         getProductById(parseInt(id!.toString())).then((data:any) => setProduct(data));
+        
     }, []);
+
+    const prevProduct = {
+        title: product?.title || "",
+        price: product?.price || 0,
+        stock: product?.stock || 0,
+        description: product?.description || "",
+        image: product?.image || "",
+        tags: product?.tags || []
+    }
 
     const updateSubmit = async() => {
         updateProduct(parseInt(id!.toString()), product)
-   }
+    }
 
     return (
-        <div className="container pt-2 pb-3 mt-5">
-            <h1 className="text-center pt-5 mt-5 mb-3 title">Modificar Producto</h1>
+        <div className="container pb-3 pt-5">
+            <h1 className="text-center mb-3 title">Modificar Producto</h1>
             
             <form id="formProducto" onSubmit={updateSubmit}>
                 <div className="row">
@@ -34,7 +46,7 @@ const ModifyProductPage = (_props: Props) => {
                             <input type="text" name="nombre"
                             value={product?.title || ""}
                             className="form-control" placeholder="Nombre"
-                            onChange={(e) => setProduct({...product!, title: e.target.value})}/>
+                            onChange={(e) => {setProduct({...product!, title: e.target.value})}}/>
                         </div>
                         
                         <div className="mb-3">
@@ -92,7 +104,9 @@ const ModifyProductPage = (_props: Props) => {
                 
                 <div className="row-auto d-flex justify-content-center gap-3 mt-4 mb-1">
                     {/* reset es para que no envie los datos, sino que regrese a los valores iniciales */}
-                    <button className="btn btn-secondary" type="reset">Cancelar</button>
+                    <button className="btn btn-secondary" type="reset" onClick={() => window.location.reload()}>
+                        Cancelar
+                    </button>
                     <button type="submit" className="b_custom px-3">
                         Actualizar Producto
                     </button>

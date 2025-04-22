@@ -22,8 +22,8 @@ const ModifyUserPage = (_props: Props) => {
    }
 
     return (
-        <div className="container pt-2 pb-3 mt-5">
-            <h1 className="text-center pt-5 mt-5 mb-3 title">Modificar Perfil del Usuario</h1>
+        <div className="container pb-3 pt-5">
+            <h1 className="text-center mb-3 title">Modificar Perfil del Usuario</h1>
             
             <form id="formProducto" onSubmit={updateSubmit}>
                 <div className="row">
@@ -62,7 +62,8 @@ const ModifyUserPage = (_props: Props) => {
                 
                 <div className="row-auto d-flex justify-content-center gap-3 mt-4 mb-1">
                     {/* reset es para que no envie los datos, sino que regrese a los valores iniciales */}
-                    <button className="btn btn-secondary" type="reset">Cancelar</button>
+                    <button className="btn btn-secondary" type="reset"
+                    onClick={() => setUser({...user!})}>Cancelar</button>
                     <button type="submit" className="b_custom px-3">
                         Actualizar Perfil
                     </button>

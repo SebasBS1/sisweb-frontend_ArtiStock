@@ -43,7 +43,7 @@ function Header(){
                 </div>
                 <div className="header_right col-md-2 d-flex justify-content-center">
                     <Link to="#" id="Lista de Compras"><img src={imgBag} alt="Icono de Compras" className="mx-3 pt-2" width={50} /></Link>
-                    <Link to="#" id="perfil"><img src={imgProfile} alt="Icono de Perfil" className="img-fluid" style={{maxWidth: 75}} /></Link>
+                    <Link to="/users/:id" id="perfil"><img src={imgProfile} alt="Icono de Perfil" className="img-fluid" style={{maxWidth: 75}} /></Link>
                 </div>
             </div>
             </div>
