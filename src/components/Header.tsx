@@ -34,7 +34,7 @@ function Header(){
                                         <Link to="/products" className="nav-link text-dark text-center">Mis Productos</Link>
                                     </li>
                                     <li className="nav-item active mx-3">
-                                        <Link to="#" className="nav-link text-dark">Promociones</Link>
+                                        <Link to="/" className="nav-link text-dark">Promociones</Link>
                                     </li>
                                 </ul>
                             </div>

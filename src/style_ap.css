@@ -22,7 +22,7 @@ body{
 h1, .title{
     font-family: 'Gothic A1',
     sans-serif;
-    font-weight: bolder;
+    font-weight: bold;
     color: #E12885
 }
 
@@ -115,4 +115,11 @@ footer {
     font-size: 14px;   
     border-radius: 5px; 
     cursor: pointer;   
+}
+
+.filter, h1,h2,h3{
+    font-family: 'Gothic A1',
+    sans-serif;
+    font-weight: bold;
+    color: #137A7F
 }

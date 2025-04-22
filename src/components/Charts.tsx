@@ -18,7 +18,7 @@ export function ProductAreaChart({key1, key2 }: ProductAreaChartParams) {
 
     useEffect(() => {
         getAllProducts().then((data:any) => setProducts(data));
-    }, [products]);
+    }, []);
 
     return(
         <div className="inline-flex justify-center mt-4">
@@ -53,7 +53,7 @@ export function ProductPieChart({_key}: ProductPieChartParams) {
 
     useEffect(() => {
         getAllProducts().then((data:any) => setProducts(data));
-    }, [products]);
+    }, []);
 
     return(
         <div className="inline-flex justify-center mt-4">
