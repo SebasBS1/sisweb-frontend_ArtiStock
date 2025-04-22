@@ -2,6 +2,9 @@ declare module "my-types"{
     export interface User{
         id: number;
         name: string;
+        email: string;
+        password: string;
+        profilePic: string;
     }
     
     export interface Tag{

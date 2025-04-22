@@ -13,14 +13,32 @@ export const getAllTags = async() => {
     }
 }
 
-// Obtener todos los productos
-export const getTagId = async(id: string) => {
+// Obtener un producto por su ID.
+export const getTagById = async(id: number) => {
     try {
         const res = await api.get(`/category/${id}`);
-        const tag: Tag[] = await res.data.payload;
-        return tag;
+        const product: Tag[] = await res.data.payload;
+        return product;
     } catch(e) {
         console.log(e);
         return [];
+    }
+}
+
+// Actualizar el producto por su ID.
+export const updateTag = async(id: number, name: string): Promise<void> => {
+    try {
+        await api.patch(`/category/${id}`, name);
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+// Borrar un producto
+export const deleteTag = async (id: number): Promise<void> => {
+    try {
+        await api.delete(`/category/${id}`);
+    } catch(e) {
+        console.log(e);
     }
 }

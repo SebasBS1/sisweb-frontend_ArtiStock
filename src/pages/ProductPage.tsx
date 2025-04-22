@@ -87,7 +87,7 @@ const ProductPage = (_props: Props) => {
                                     <td>{product.userId}</td>
                                     <td>{product.stock}</td>
                                     <td className="px-4 py-2">
-                                        <button type="button" onClick={() => window.location.href = `/modify-product/${product.id}`}>
+                                        <button type="button" onClick={() => window.location.href = `/products/${product.id}`}>
                                             <FontAwesomeIcon icon={faEdit} />
                                         </button>
                                     </td>
