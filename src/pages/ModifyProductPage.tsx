@@ -22,8 +22,8 @@ const ModifyProductPage = (_props: Props) => {
     }, []);
 
     const updateSubmit = async() => {
-        if (product?.tags.map !== undefined){
-            product!.tags.map((t, i) => {
+        if (product?.tags !== undefined){
+            product!.tags.map((t) => {
                 updateTag(t.id, {id: t.id, name: t.name});
             });
         }
@@ -81,10 +81,10 @@ const ModifyProductPage = (_props: Props) => {
                             <input type="text" name="tags"
                             value={(product?.tags && (product?.tags.length > 0))? (product?.tags.map((tag) => {return tag.name}).join(", ")) : ""}
                             onChange={(e) =>{
-                                    if (product?.tags.map !== undefined){
+                                    if (product?.tags !== undefined){
                                         userTagsString = e.target.value;
                                         let tagsArray = product!.tags || [];
-                                        let userTags = e.target.value.split(", ").map(t => t.trim());
+                                        let userTags = userTagsString.split(", ").map(t => t.trim());
                                         const updatedTags = tagsArray.map((t, i) => {
                                             return {...t, id: t.id, name: userTags[i]};
                                         });
