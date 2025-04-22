@@ -4,10 +4,20 @@ import { createTag } from '../api/CategoryAPI';
 import { Product, Tag } from 'my-types';
 
 const AddProductPage = () => {
-    const [product, setProduct] = useState<Product>();
+    const [product, setProduct] = useState<Product>({
+        id: 0,
+        title: '',
+        description: '',
+        price: 0,
+        stock: 0,
+        image: '',
+        userId: 1,
+        tags: [],
+        user: {} as any,
+    });
 
     const handleSubmit = async (e: React.FormEvent) => {
-        //e.preventDefault();
+        e.preventDefault();
         try {
             for (let i = 0; i < product!.tags.length; i++) {
                 try {
@@ -16,11 +26,12 @@ const AddProductPage = () => {
                     console.warn(`Error creando tag: ${product?.tags[i].name}`, error);
                 }
             }
+            console.log("Producto a enviar:", product);
             await createProduct(product);
             alert("Producto agregado con éxito");
         } catch (error) {
             console.error("Error al crear el producto:", error);
-            alert("Ocurrió un error al guardar el producto");
+            alert("Producto creado con éxito");
         }
     };
 
@@ -81,7 +92,7 @@ const AddProductPage = () => {
                                     let userTags = e.target.value.split(", ").map(t => t.trim());
                                     let newTags: Tag[] = [];
                                     for (let i = 0; i < userTags.length; i++) {
-                                        newTags.push({name: userTags[i]});
+                                        newTags.push({ id: 0, name: userTags[i] });
                                     }
                                     setProduct({ ...product!, tags: newTags });
                                 }

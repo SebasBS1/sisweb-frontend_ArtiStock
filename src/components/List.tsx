@@ -1,32 +1,21 @@
-import { useEffect, useState } from "react";
 import { Product } from "my-types";
-import { deleteProduct, getAllProducts } from "../api/ProductAPI";
+import { Link } from "react-router-dom";
 
-export default function List () {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    getAllProducts().then((data: any) => setProducts(data));
-  }, []);
-
-  const handleDelete = async (id: number, title: string) => {
-    const confirmDelete = confirm(`¿Estás seguro de que quieres eliminar el producto "${title}"?`);
-    if (!confirmDelete) return;
-
-    await deleteProduct(id);
-    const updatedProducts = await getAllProducts();
-    setProducts(updatedProducts ?? []);
-  };
-
+export default function List ({products}:{products:Array<Product>}) {
+  
   return (
     <>
       {products.map((producto, index) => (
         <div key={index} className="d-flex producto mx-4 mb-4 p-3 rounded">
           <img src={producto.image}
-            alt={producto.title}
-            className="img-fluid" width="500px" />
+          alt={producto.title}
+          className="img-fluid" width="500px" />
           <div className="flex-grow-1 d-flex flex-column justify-content-between ps-3">
-            <h2 className="mt-3">{producto.title}</h2>
+            <h2 className="mt-3">
+              <Link to ={`/product/${producto.id}`} className="link">
+              {producto.title}
+              </Link>
+            </h2>
             <p>{producto.price} MXN</p>
             <p>{producto.description}</p>
             {producto.tags && producto.tags.length > 0 && (
@@ -46,12 +35,7 @@ export default function List () {
             >
               Modificar
             </button>
-            <button
-              className="btn"
-              onClick={() => handleDelete(producto.id, producto.title)}
-            >
-              Eliminar
-            </button>
+            <button className="btn">Eliminar</button>
           </div>
         </div>
       ))}

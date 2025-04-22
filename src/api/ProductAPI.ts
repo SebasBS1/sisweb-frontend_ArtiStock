@@ -35,7 +35,7 @@ export const updateProduct = async(id: number, _prop: Product | undefined): Prom
 }
 
 //CREAR UN PRODUCTO
-export const createProduct = async (product: Product | undefined) => {
+export const createProduct = async (product: Product) => {
     try {
         await api.post("/product", product);
     } catch (e) {
