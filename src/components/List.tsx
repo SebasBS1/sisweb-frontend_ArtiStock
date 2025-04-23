@@ -17,8 +17,8 @@ export default function List({ products, onDelete }: ListProps) {
             className="img-fluid" width="500px" />
           <div className="flex-grow-1 d-flex flex-column justify-content-between ps-3">
             <h2 className="mt-3">
-              <Link to={`/product/${producto.id}`} className="link">
-                {producto.title}
+              <Link to ={`/product/${producto.id}`} className="link">
+              {producto.title}
               </Link>
             </h2>
             <p>{producto.price} MXN</p>

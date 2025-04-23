@@ -8,10 +8,12 @@ interface Props {}
 
 const App = (_props: Props) => {
   return (
-    <div>
-      <Header />
-      <Outlet />
-      <Footer />
+    <div className="d-flex flex-column min-vh-100">
+        <Header />
+        <main className="flex-fill">
+        <Outlet />
+        </main>
+        <Footer />
     </div>
   );
 }

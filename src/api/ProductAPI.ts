@@ -17,7 +17,7 @@ export const getAllProducts = async() => {
 export const getProductById = async(id: number) => {
     try {
         const res = await api.get(`/product/${id}`);
-        const product: Product[] = await res.data.payload;
+        const product: Product = await res.data.payload;
         return product;
     } catch(e) {
         console.log("Error al obtener la información del producto:", e);
