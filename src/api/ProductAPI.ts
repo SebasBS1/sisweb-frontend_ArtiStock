@@ -1,26 +1,26 @@
 import api from "./index";
 import { Product } from "my-types";
 
-// Obtener todos los productos
+// Obtener todos los productos.
 export const getAllProducts = async() => {
     try {
         const res = await api.get("/product");
         const products: Product[] = await res.data.payload;
         return products;
     } catch(e) {
-        console.log(e);
+        console.log("Error al obtener todos los productos:", e);
         return [];
     }
 }
 
-// Obtener todos los productos
-export const getProductById = async(id: string) => {
+// Obtener el producto por ID.
+export const getProductById = async(id: number) => {
     try {
         const res = await api.get(`/product/${id}`);
         const product: Product[] = await res.data.payload;
         return product;
     } catch(e) {
-        console.log(e);
+        console.log("Error al obtener la información del producto:", e);
         return [];
     }
 }
@@ -30,11 +30,11 @@ export const updateProduct = async(id: number, _prop: Product | undefined): Prom
     try {
         await api.patch(`/product/${id}`, _prop);
     } catch(e) {
-        console.log(e);
+        console.log("Error al actualizar el producto:", e);
     }
 }
 
-//CREAR UN PRODUCTO
+// Crear un producto.
 export const createProduct = async (product: Product) => {
     try {
         await api.post("/product", product);
@@ -44,10 +44,11 @@ export const createProduct = async (product: Product) => {
     }
 };
 
-//BORRAR UN PRODUCTO
+// Borrar un producto.
 export const deleteProduct = async (id: number): Promise<void> => {
     try {
         await api.delete(`/product/${id}`);
-    } catch (err) {
+    } catch (e) {
+        console.log("Error al eliminar el producto:", e);
     }
 };

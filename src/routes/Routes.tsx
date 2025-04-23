@@ -3,31 +3,42 @@ import App from "../App";
 import ProductPage from "../pages/ProductPage";
 import ErrorPage from "../pages/ErrorPage";
 import ModifyProductPage from "../pages/ModifyProductPage";
+import ModifyUserPage from "../pages/ModifyUserPage";
 import AddProductPage from "../pages/AddProductPage";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/products",
-        element: <ProductPage />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/modify-product/:id",
-        element: <ModifyProductPage />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/add-product",
-        element: <AddProductPage />,
-        errorElement: <ErrorPage />,
-      },
-    ],
-    errorElement: <ErrorPage />,
-  },
+    {
+        path: "/",
+        element: <App />,
+        children: [
+            {
+                path: "/users",
+                element: <ProductPage />,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: "/users/:id",
+                element: <ModifyUserPage />,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: "/products",
+                element: <ProductPage />,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: "/products/:id",
+                element: <ModifyProductPage />,
+                errorElement: <ErrorPage />,
+            },
+            {
+              path: "/add-product",
+              element: <AddProductPage />,
+              errorElement: <ErrorPage />,
+            },
+        ],
+        errorElement: <ErrorPage />
+    },
 ]);
 
 export default router;

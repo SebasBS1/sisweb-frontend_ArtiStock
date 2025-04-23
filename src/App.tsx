@@ -8,11 +8,11 @@ interface Props {}
 
 const App = (_props: Props) => {
   return (
-    <>
+    <div>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
 

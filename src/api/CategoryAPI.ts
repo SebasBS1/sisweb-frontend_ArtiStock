@@ -8,7 +8,7 @@ export const getAllTags = async() => {
         const tags: Tag[] = await res.data.payload;
         return tags;
     } catch(e) {
-        console.log(e);
+        console.log("Error al obtener los tags: ", e);
         return [];
     }
 }
@@ -20,7 +20,7 @@ export const getTagById = async(id: number) => {
         const product: Tag[] = await res.data.payload;
         return product;
     } catch(e) {
-        console.log(e);
+        console.log("Error al obtener la información del tag:", e);
         return [];
     }
 }
@@ -30,7 +30,7 @@ export const updateTag = async(id: number, _prop: Tag | undefined): Promise<void
     try {
         await api.patch(`/category/${id}`, _prop);
     } catch(e) {
-        console.log(e);
+        console.log("Error al actualizar el tag: ", e);
     }
 }
 
@@ -39,16 +39,16 @@ export const deleteTag = async (id: number): Promise<void> => {
     try {
         await api.delete(`/category/${id}`);
     } catch(e) {
-        console.log(e);
+        console.log("Error al eliminar el tag:", e);
     }
 }
 
-// Crear un tag 
+// Crear un tag.
 export const createTag = async (tag: Partial<Tag>) => {
     try {
         await api.post("/category", tag);
     } catch (e) {
-        console.log("Error al crear el tag:", e);
+        console.log("Error al crear el tag: ", e);
         throw e;
     }
 };
