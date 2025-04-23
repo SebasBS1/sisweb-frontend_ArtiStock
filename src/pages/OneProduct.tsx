@@ -9,7 +9,7 @@ const OneProduct = () => {
 
   useEffect(() => {
     if (id) {
-      getProductById(id)
+      getProductById(parseInt(id))
         .then((data) => {
           if (data) {
             setProduct(data);
@@ -29,10 +29,10 @@ const OneProduct = () => {
       <h1>{product.title || "Sin título"}</h1>
       <h2>Por {product.user?.name || "Sin usuario"}</h2>
       <p>
-        <strong>Precio:</strong> {product.price} MXN
+        <strong>Precio:</strong> $ {product.price} MXN
       </p>
       <p>
-        <strong>Stock:</strong> {product.stock} MXN
+        <strong>Cantidad de Artículos en Stock:</strong> {product.stock}
       </p>
       <p>
         <strong>Descripción:</strong> {product.description}

@@ -14,30 +14,13 @@ function Header(){
                     <div className="col-12 col-md-8">
                         <div className="row">
                             <div className="col-12 header_center d-flex justify-content-center w-100">
-                                <div className="searchbar d-flex rounded-pill w-50">
+                                <div className="searchbar d-flex rounded-pill w-50 mt-3">
                                     <input type="text" placeholder="Buscar Productos" className="text-white form-control bg-transparent border-0" />
                                     <button type="submit" className="btn btn-link">
                                     <FontAwesomeIcon icon={faMagnifyingGlass} size="xs" style={{color:"white"}} />
                                     </button>
                                 </div>
-                            </div>
-                            <div className="row">
-                                <nav className="navbar navbar-expand col-12">
-                                    <div className="container justify-content-center">
-                                        <ul className="navbar-nav">
-                                            <li className="nav-item active mx-3">
-                                                <Link to="/users" className="nav-link text-dark"> Artistas</Link>
-                                            </li>
-                                            <li className="nav-item active mx-3">
-                                                <Link to="/products" className="nav-link text-dark text-center">Mis Productos</Link>
-                                            </li>
-                                            <li className="nav-item active mx-3">
-                                                <Link to="#" className="nav-link text-dark">Promociones</Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </nav>
-                            </div>
+                            </div>  
                         </div>
                         <div className="row">
                             <nav className="navbar navbar-expand col-12">
@@ -50,7 +33,7 @@ function Header(){
                                             <Link to="/products" className="nav-link text-dark text-center">Mis Productos</Link>
                                         </li>
                                         <li className="nav-item active mx-3">
-                                            <Link to="/graph" className="nav-link text-dark">Graficas</Link>
+                                            <Link to="/graph" className="nav-link text-dark">Gráficas</Link>
                                         </li>
                                     </ul>
                                 </div>

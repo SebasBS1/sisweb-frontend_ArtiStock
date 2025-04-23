@@ -52,3 +52,14 @@ export const deleteProduct = async (id: number): Promise<void> => {
         console.log("Error al eliminar el producto:", e);
     }
 };
+
+// Obtener datos para las gráficas.
+export const getAllProductsGraph = async () => {
+    try {
+      const res = await api.get("/product/graph");
+      const products: Product[] = await res.data.payload;
+      return products;
+    } catch (err) {
+      console.log(err);
+    }
+  };

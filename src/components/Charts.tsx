@@ -22,8 +22,9 @@ export function ProductAreaChart({key1, key2 }: ProductAreaChartParams) {
 
     return(
         <div className="inline-flex justify-center mt-4">
-            <h2 className="subtitle">Product {key1[0].toUpperCase() + key1.slice(1)} VS&nbsp;
-                {key2[0].toUpperCase() + key2.slice(1)}</h2>
+            <h2 className="subtitle">
+                Product {key1[0].toUpperCase() + key1.slice(1)} VS&nbsp; {key2[0].toUpperCase() + key2.slice(1)}
+            </h2>
             <AreaChart width={750} height={350} data={products}
                     margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                 <defs>

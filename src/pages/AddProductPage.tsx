@@ -37,7 +37,7 @@ const AddProductPage = () => {
 
     return (
         <div className="container pt-2 pb-3 mt-5">
-            <h1 className="text-center pt-5 mt-5 mb-3 title">Agregar Producto</h1>
+            <h1 className="text-center mt-2 mb-3 title">Agregar Producto</h1>
 
             <form id="formProducto" onSubmit={handleSubmit}>
                 <div className="row">
