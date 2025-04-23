@@ -48,7 +48,7 @@ const ProductPage = (_props: Props) => {
           <h1 className="text-lg font-medium title">ALL PRODUCTS</h1>
           </div>
           <div className="d-flex justify-content-end pt-2">
-          <button id="button" className="btn " onClick={() => (window.location.href = "/add-product")}>
+          <button id="button" className="btn " onClick={() => (window.location.href = "/add-product/")}>
             Agregar Producto
             </button>
           </div>
