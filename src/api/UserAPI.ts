@@ -1,6 +1,16 @@
 import api from "./index";
 import { User } from "my-types";
 
+//Crear un usuario
+export const createProduct = async (user: User) => {
+    try {
+        await api.post("/user", user);
+    } catch (e) {
+        console.log("Error al crear el usuario: ", e);
+        throw e;
+    }
+};
+
 // Obtener todos los usuarios.
 export const getAllUsers = async() => {
     try {
@@ -8,7 +18,7 @@ export const getAllUsers = async() => {
         const users: User[] = await res.data.payload;
         return users;
     } catch(e) {
-        console.log(e);
+        console.log("Error al obtener todos los usuarios: ", e);
         return [];
     }
 }
@@ -20,7 +30,7 @@ export const getUserById = async(id: number) => {
         const user: User[] = await res.data.payload;
         return user;
     } catch(e) {
-        console.log(e);
+        console.log("Error al obtener información del usuario: ", e);
         return [];
     }
 }
@@ -30,7 +40,7 @@ export const updateUser = async(id: number, _prop: User | undefined): Promise<vo
     try {
         await api.patch(`/user/${id}`, _prop);
     } catch(e) {
-        console.log(e);
+        console.log("Error al actualizar el usuario: ", e);
     }
 }
 
@@ -39,6 +49,6 @@ export const deleteUser = async (id: number): Promise<void> => {
     try {
         await api.delete(`/user/${id}`);
     } catch(e) {
-        console.log(e);
+        console.log("Error al eliminar el usuario: ", e);
     }
 }

@@ -42,3 +42,13 @@ export const deleteTag = async (id: number): Promise<void> => {
         console.log(e);
     }
 }
+
+// Crear un tag 
+export const createTag = async (tag: Partial<Tag>) => {
+    try {
+        await api.post("/category", tag);
+    } catch (e) {
+        console.log("Error al crear el tag:", e);
+        throw e;
+    }
+};
