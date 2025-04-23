@@ -1,7 +1,7 @@
 
 import { Product } from "my-types";
 import { useState, useEffect } from "react";
-import { getAllProducts } from "../api/ProductAPI";
+import { getAllProducts, deleteProduct } from "../api/ProductAPI";
 import { ProductAreaChart, ProductPieChart } from "../components/Charts";
 import Filter from "../components/Filter";
 import List from "../components/List";
@@ -30,6 +30,16 @@ const ProductPage = (_props: Props) => {
     getAllProducts().then((data: any) => setProducts(data));
   }, []);
 
+  //Borrar producto
+  const handleDelete = async (id: number, title:string) => {
+    const confirmDelete = confirm(`¿Estás seguro de que quieres eliminar el producto "${title}"?`);
+    if (!confirmDelete) return;
+  
+    await deleteProduct(id);
+    const updatedProducts = await getAllProducts();
+    setProducts(updatedProducts ?? []);
+  };
+
   return (
     <div className="pt-5">
       
@@ -46,7 +56,7 @@ const ProductPage = (_props: Props) => {
 
         <Filter name={name} setName={setName} />
 
-        <List products={filteredProducts}/>
+        <List products={filteredProducts} onDelete={handleDelete}/>
   
         <ProductAreaChart key1="price" key2="id" />
         <ProductPieChart _key="stock" />

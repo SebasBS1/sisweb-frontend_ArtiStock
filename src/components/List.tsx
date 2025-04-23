@@ -1,19 +1,24 @@
 import { Product } from "my-types";
 import { Link } from "react-router-dom";
 
-export default function List ({products}:{products:Array<Product>}) {
-  
+interface ListProps {
+  products: Array<Product>;
+  onDelete: (id: number, title: string) => void;
+}
+
+export default function List({ products, onDelete }: ListProps) {
+
   return (
     <>
       {products.map((producto, index) => (
         <div key={index} className="d-flex producto mx-4 mb-4 p-3 rounded">
           <img src={producto.image}
-          alt={producto.title}
-          className="img-fluid" width="500px" />
+            alt={producto.title}
+            className="img-fluid" width="500px" />
           <div className="flex-grow-1 d-flex flex-column justify-content-between ps-3">
             <h2 className="mt-3">
-              <Link to ={`/product/${producto.id}`} className="link">
-              {producto.title}
+              <Link to={`/product/${producto.id}`} className="link">
+                {producto.title}
               </Link>
             </h2>
             <p>{producto.price} MXN</p>
@@ -35,7 +40,9 @@ export default function List ({products}:{products:Array<Product>}) {
             >
               Modificar
             </button>
-            <button className="btn">Eliminar</button>
+            <button className="btn" onClick={() => onDelete(producto.id, producto.title)}>
+              Eliminar
+            </button>
           </div>
         </div>
       ))}
