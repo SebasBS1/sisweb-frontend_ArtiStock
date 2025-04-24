@@ -2,7 +2,7 @@ import api from "./index";
 import { User } from "my-types";
 
 //Crear un usuario
-export const createProduct = async (user: User) => {
+export const createUser = async (user: User) => {
     try {
         await api.post("/user", user);
     } catch (e) {
